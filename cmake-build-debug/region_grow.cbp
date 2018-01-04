@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="region_grow"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="region_grow">
+				<Option output="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/region_grow" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 region_grow"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="region_grow/fast">
+				<Option output="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/region_grow" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 region_grow/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/cptfinch/CLionProjects/region_grow/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/BinaryImage.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/BinaryImage.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/BinaryImage2.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/BinaryImage2.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/blob.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/blob.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/blobcounter.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/histogram.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iBMPoBMP.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iBMPstream.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iBMPstream.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iBMPstreamRS1.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iBMPstreamRS1.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iPNMoBMP.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iPNMstream.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/iPNMstream.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/oBMPstream.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/oBMPstream.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/oBMPtest.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/rgbpixel.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/src/rgbpixel.h">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/test/testing.cpp">
+			<Option target="region_grow"/>
+		</Unit>
+		<Unit filename="/Users/cptfinch/CLionProjects/region_grow/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
