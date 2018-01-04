@@ -1,11 +1,11 @@
 #include "rgbpixel.h"
 #include "iBMPstream.h"
 #include "BinaryImage.h"
-#include <string>
+
+#include <utility>
 
 /*---------------------------------------------------------------------------
 Constructor for 2Dbinaryimage reads in a stream and converts it to 2D binary
-   
 ---------------------------------------------------------------------------*/
 BinaryImage::BinaryImage (string stream)
 {
@@ -14,7 +14,7 @@ BinaryImage::BinaryImage (string stream)
   columns = 0;	//can assume constructor has failed.
   rgbpixel inpixel; //rgbpixel to read stream
 
-  iBMPstream infile (stream);
+  iBMPstream infile (std::move(stream));
   if(!infile)
   {
     cerr << "Error opening input file" << endl;
@@ -112,10 +112,9 @@ void BinaryImage::countBlobs()
     }
   }                  
   
-  for (blobIterator i = blobs.begin(); i!= blobs.end(); ++i)
-  {
-    cout << "Area " << i->getArea() << endl;
-    cout << "Perimeter = " << i->getPerimeter() << endl;
+  for (auto &blob : blobs) {
+    cout << "Area " << blob.getArea() << endl;
+    cout << "Perimeter = " << blob.getPerimeter() << endl;
   }            
 
 } // end countBlobs()
@@ -132,7 +131,7 @@ int BinaryImage::getBlobSize(int r, int c) {
             // no blob at this position.
          return 0;
       }
-      if (getFilled(r,c) == false || getVisited(r, c)== true) 
+      if (!getFilled(r, c) || getVisited(r, c))
 	{
            // This square is not part of a blob, or else it has
            // already been counted, so return zero.
@@ -163,7 +162,7 @@ int BinaryImage::getBlobPerimeter(int r, int c) {
             // no blob at this position.
          return 0;
       }
-      if (getFilled(r,c) == false || getVisitedB(r, c)== true) 
+      if (!getFilled(r, c) || getVisitedB(r, c))
 	{
            // This square is not part of a blob, or else it has
            // already been counted, so return zero.
@@ -175,25 +174,25 @@ int BinaryImage::getBlobPerimeter(int r, int c) {
       int boundary = 0;  // Count the square at this position, then count the
                      //   the blobs that are connected to this square
                      //    horizontally or vertically.
-      if (getFilled(r-1,c) == false && getBoundaryVisited(r-1,c) == false)   // Count boundary squares.
+      if (!getFilled(r - 1, c) && !getBoundaryVisited(r - 1, c))   // Count boundary squares.
 	{
 	  boundary ++;
 	  setBoundaryVisited(r-1,c,true);
 	}     
 	
-	if (getFilled(r+1,c) == false && getBoundaryVisited(r+1,c) == false)   // Count boundary squares.
+	if (!getFilled(r + 1, c) && !getBoundaryVisited(r + 1, c))   // Count boundary squares.
 	{
 	  boundary ++;
 	  setBoundaryVisited(r+1,c,true);
 	}               
       
-	if (getFilled(r,c-1) == false && getBoundaryVisited(r,c-1) == false)   // Count boundary squares.
+	if (!getFilled(r, c - 1) && !getBoundaryVisited(r, c - 1))   // Count boundary squares.
 	{
 	  boundary ++;
 	  setBoundaryVisited(r,c-1,true);
 	}   
  
-	if (getFilled(r,c+1) == false && getBoundaryVisited(r,c+1) == false)   // Count boundary squares.
+	if (!getFilled(r, c + 1) && !getBoundaryVisited(r, c + 1))   // Count boundary squares.
 	{
 	  boundary ++;
 	  setBoundaryVisited(r,c+1,true);
