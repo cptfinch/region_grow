@@ -65,7 +65,6 @@ iBMPstream::iBMPstream (string infile)
 		Width = bi.biWidth;				//Set private variables
 		Height = bi.biHeight;
 		NumberOfPixels = Width * Height;
-		startOfImage = bf.bfOffBits;
 
 		cout << "Width = " << Width << endl;
 		cout << "Height = " << Height << endl;
@@ -205,7 +204,7 @@ HISTORY:
 /*check for end of file*/
 /*---------------------------------------------------------------------------*/
 
-  if (numberOfRowsRead == Height)
+  if (ifstream::eof())
   {
     return false;
   }
@@ -214,35 +213,35 @@ HISTORY:
 /*read a byte from the (file) stream and decode it.. */
 /*read from last row to be consistent with PNM top-left bottom-right stream order*/ 
 /*---------------------------------------------------------------------------*/
-  ifstream::seekg(startOfImage + ActualBytesPerRow*(Height-1-numberOfRowsRead), ios::beg);
+  ifstream::seekg(ActualBytesPerRow*numberOfRowsRead, ios::end);
   
-  for (int i=0; i < (int)BytesPerRow; i++)
+  for (int i=0; i < BytesPerRow; i++)
   {
-    ifstream::read ((char *)&byte, 1);
+  ifstream::read ((char *)&byte, 1);
 
-    index[0] = ((byte & 0x80) >> 7);
-    index[1] = ((byte & 0x40) >> 6);
-    index[2] = ((byte & 0x20) >> 5);
-    index[3] = ((byte & 0x10) >> 4);
-    index[4] = ((byte & 0x08) >> 3);
-    index[5] = ((byte & 0x04) >> 2);
-    index[6] = ((byte & 0x02) >> 1);
-    index[7] = ((byte & 0x01) >> 0);
+  index[0] = ((byte & 0x80) >> 7);
+  index[1] = ((byte & 0x40) >> 6);
+  index[2] = ((byte & 0x20) >> 5);
+  index[3] = ((byte & 0x10) >> 4);
+  index[4] = ((byte & 0x08) >> 3);
+  index[5] = ((byte & 0x04) >> 2);
+  index[6] = ((byte & 0x02) >> 1);
+  index[7] = ((byte & 0x01) >> 0);
 
-    for(int j=0; j<8; j++)
-    {
-      pixq.push (colourMap[index[j]]);
-      nRead++;
-    }
+  for(int j=0; j<8; j++)
+  {
+    pixq.push (colourMap[index[j]]);
+  
+    nRead++;
+  }
 
-     if (nRead % Width == 0)
+/*
+    if (nRead % Width == 0)
     {
       ifstream::read (Temp, BytePaddingPerRow);
 	break;
     }
-
-  }
-
+*/
 
   numberOfRowsRead++;
   delete[] Temp;

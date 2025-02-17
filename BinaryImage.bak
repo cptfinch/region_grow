@@ -101,7 +101,7 @@ void BinaryImage::countBlobs()
 	  b.setPerimeter(perimeter);
 	  blobs.push_back(b);
         
-        for (int r = 0; r < rows; r++)		//set boundary visited = false 
+        for (int r = 0; r < rows; r++)
         {
           for (int c = 0; c < columns; c++)
           {

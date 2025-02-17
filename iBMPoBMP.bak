@@ -1,7 +1,6 @@
 // Convert a file from BMP binary format to BMP 24bit format
 #include "rgbpixel.h"
 #include "iBMPstream.h"
-#include "oBMPstream.h"
 
 int main (int argc, char *argv[]) 
 {

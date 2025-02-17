@@ -1,6 +1,8 @@
-#include "../src/iPNMstream.h"
+//#include <iostream>
+#include "iPNMstream.h"
+#include <string>
 #include <iomanip>
-//using namespace std;
+using namespace std;
 
 int main(int argc, char *argv[])
 {

@@ -55,14 +55,22 @@ public:
 	int GetHeight() {
 		return Height;
 	}
+
+	rgbpixel getColourAt(int colourIndex)
+	{
+	  return colourMap[colourIndex];
+	}
+
 private:
 	int Width;
 	int Height;	
 	streamsize NumberOfPixels;
+	unsigned int startOfImage;
 
 	rgbpixel* colourMap;
 	unsigned char BytePaddingPerRow;
 	unsigned int ActualBytesPerRow;
+	unsigned int BytesPerRow;
 	
 	int nRead;
 	int numberOfRowsRead;

@@ -5,7 +5,7 @@
 iPNMstream::iPNMstream (string infile)
 	{
 		
-		ifstream::open (infile.c_str(), ios::in | ios::binary);
+		ifstream::open (infile.c_str(), ios::in | 				ios::binary);
 		 	    		
 		char buf[1024];
 		

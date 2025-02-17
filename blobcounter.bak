@@ -20,7 +20,9 @@ int main (int argc, char *argv[])
 */
 
 /* -------------------------get number of blobs--*/    
-  binaryImage.countBlobs();
-  
+  int numberOfBlobs = binaryImage.countBlobs();
+
+  cout << "Number of Blobs = " << numberOfBlobs << endl;
+
   return 0;
 }

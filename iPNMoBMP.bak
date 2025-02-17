@@ -1,7 +1,7 @@
-// Convert a file from PNM format to 24bit BMP format
+// Convert a file from BMP binary format to BMP 24bit format
 #include "rgbpixel.h"
 #include "oBMPstream.h"
-#include "iPNMstream.h"
+#include "iBMPstream.h"
 
 int main (int argc, char *argv[]) {
   

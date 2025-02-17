@@ -1,0 +1,113 @@
+#include "rgbpixel.h"
+#include "iBMPstream.h"
+#include "2Dbinaryimage.h"
+
+/*---------------------------------------------------------------------------
+Constructor for 2Dbinaryimage reads in a stream and converts it to 2D binary
+   
+---------------------------------------------------------------------------*/
+2Dbinaryimage::2Dbinaryimage (string stream)
+{
+  iBMPstream infile (stream);
+  if(!infile)
+  {
+    cerr << "Error opening input file" << endl;
+  }
+  rgbpixel inpixel; //rgbpixel to read stream
+
+  columns = infile.getWidth();
+  rows = infile.getHeight();
+
+//define the pixel as on if it has same colour as 
+  rgbpixel on = infile.colourmap[1];
+  rgbpixel off = infile.colourmap[0];
+
+//filled stores binary image as boolean values
+  filled = new bool[rows][columns];
+
+//visited is for telling if a pixel has already been visited
+  visited = new bool[rows][columns];
+
+//read the image into 2D array filled
+  for (int r = 0; r < rows; r++)
+  {
+    for (int c = 0; c < columns; c++)
+    {
+      infile.read(&inpixel,1)
+	
+	if (inpixel==colourMap[1])
+	{
+	  filled[r][c]=true;
+	}
+
+	else
+	{
+	  filled[r][c]=false;
+	}
+    }
+  }
+}// end of constructor
+
+
+
+int countBlobs() 
+{
+// Find the number of blobs in the grid and report the number to screen.
+         
+  int count = 0; // Number of blobs.
+  
+         /* First clear out the visited array. The getBlobSize() method will
+         mark every filled square that it finds by setting the corresponding
+         element of the array to true.  Once a square has been marked as
+         visited, it will stay marked until all the blobs have been counted.
+         This will prevent the same blob from being counted more than once. */
+      
+      for (int r = 0; r < rows; r++)
+         for (int c = 0; c < columns; c++)
+            visited[r][c] = false;
+            
+      /* For each position in the grid, call getBlobSize() to get the size
+         of the blob at that position.  If the sixe is not zero, count a blob.
+         Note that if we come to a position that was part of a previously
+         counted square, getBlobSize() will return 0 and the blob will not
+         be counted again. */
+            
+      for (int r = 0; r < rows; r++)
+         for (int c = 0; c < columns; c++) {
+            if (getBlobSize(r,c) > 0)
+               count++;
+         }
+                     
+      return count;
+            
+   } // end countBlobs()
+
+
+int getBlobSize(int r, int c) {
+         // Counts the squares in the blob at position (r,c) in the
+         // grid.  Squares are only counted if they are filled and
+         // unvisited.  If this routine is called for a position that
+         // has been visited, the return value will be zero.
+      if (r < 0 || r >= rows || c < 0 || c >= columns) {
+            // This position is not in the grid, so there is
+            // no blob at this position.
+         return 0;
+      }
+      if (filled[r][c] == false || visited[r][c] == true) {
+           // This square is not part of a blob, or else it has
+           // already been counted, so return zero.
+         return 0;
+      }
+      visited[r][c] = true;   // Mark the square as visited so that
+                              //    we won't count it again during the
+                              //    following recursive calls to this method.
+      int size = 1;  // Count the square at this position, then count the
+                     //   the blobs that are connected to this square
+                     //    horizontally or vertically.
+      size += getBlobSize(r-1,c);
+      size += getBlobSize(r+1,c);
+      size += getBlobSize(r,c-1);
+      size += getBlobSize(r,c+1);
+      return size;
+   }  // end getBlobSize()
+   

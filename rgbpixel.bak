@@ -44,7 +44,7 @@ void rgbpixel::SetBlueValue(unsigned char Value){
 
 bool operator==(rgbpixel a, rgbpixel b) 
 {
-  if (a.GetRedValue()==b.GetRedValue() && a.GetGreenValue()==b.GetGreenValue() && a.GetBlueValue()==b.GetBlueValue())
+  if ((a.GetRedValue==b.GetRedValue) && (a.GetGreenValue==b.GetGreenValue) && (a.GetBlueValue==b.GetBlueValue))
   {
     return true;
   }

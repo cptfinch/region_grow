@@ -1,4 +1,4 @@
-#include "../src/iPNMstream.h"
+#include "iPNMstream.h"
 #include <iomanip>
 //using namespace std;
 

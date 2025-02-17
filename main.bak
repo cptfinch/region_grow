@@ -1,0 +1,24 @@
+#include <iostream>
+#include "iPNMstream.h"
+#include <string>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+	iPNMstream pnmimage("../HistologySlides/3621.pnm");
+	
+	int ImageSize = pnmimage.GetNumberOfPixels();
+
+	rgbpixel buf[ImageSize];
+
+	pnmimage.read(buf, ImageSize);
+
+	cout << (int)buf[0].GetRedValue() << endl;
+
+	cout << (int)pnmimage.GetNumberOfPixels() << endl;
+
+	pnmimage.close();
+	return 0;
+}
+
+

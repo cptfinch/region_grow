@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-//#include "rgbpixel.h"
+#include "rgbpixel.h"
 using namespace std;
 
 class iPNMstream : private ifstream

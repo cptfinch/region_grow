@@ -99,9 +99,9 @@ bool oBMPstream::write (rgbpixel *p, streamsize NumberOfPixels)
 	  unsigned char g = p[i].GetGreenValue();
 	  unsigned char b = p[i].GetBlueValue();
 
-	  ofstream::write ((char*) &b, 1);
-	  ofstream::write ((char*) &g, 1);
 	  ofstream::write ((char*) &r, 1);
+	  ofstream::write ((char*) &g, 1);
+	  ofstream::write ((char*) &b, 1);
 	  
 	  nWritten++;	
 

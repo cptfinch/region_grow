@@ -34,10 +34,9 @@ int main (int argc, char *argv[]) {
   rgbpixel RedPix(255,0,0);
   rgbpixel GreenPix(0,255,0);
   rgbpixel BluePix(0,0,255);
-  rgbpixel YellowPix(255, 255, 128);
+
   
   unsigned int nWrittenInRow = 0;
-  
 
   for (unsigned int i=0; i<height/2; i++)
   {
@@ -68,7 +67,7 @@ int main (int argc, char *argv[]) {
 	}
 	else 
 	{
-	  outfile.write (&YellowPix, 1);
+	  outfile.write (&RedPix, 1);
 	  nWrittenInRow++;
 	}
     }

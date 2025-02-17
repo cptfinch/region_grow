@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 		}
 
 	cout << fixed;
-	cout << left;
+	cout << centre;
 
 	cout << setw(20) << "Intensity" << setw(12) << "Red Value";
 	cout << setw(12) << "Green Value" << setw(12) << "Blue Value" << endl;
