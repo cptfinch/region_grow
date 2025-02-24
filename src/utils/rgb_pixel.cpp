@@ -1,48 +1,39 @@
-#include "rgbpixel.h"
+#include "utils/rgb_pixel.hpp"
+#include <iostream>
 
-rgbpixel::rgbpixel(unsigned char ARedValue,
-		   unsigned char AGreenValue, 
-	     	   unsigned char ABlueValue){
-	
+using namespace std;
+rgb_pixel::rgb_pixel(unsigned char ARedValue, unsigned char AGreenValue, unsigned char ABlueValue){
 	RedValue = ARedValue;
 	GreenValue = AGreenValue;
 	BlueValue = ABlueValue;
 }
 	
-unsigned char rgbpixel::GetRedValue(){
-	
+unsigned char rgb_pixel::GetRedValue(){
 	return RedValue;
 }
 
-unsigned char rgbpixel::GetGreenValue(){
-	
+unsigned char rgb_pixel::GetGreenValue(){
 	return GreenValue;
 }
 
-unsigned char rgbpixel::GetBlueValue(){
-	
+unsigned char rgb_pixel::GetBlueValue(){
 	return BlueValue;
 }
 
-
 //Set private variables
-void rgbpixel::SetRedValue(unsigned char Value){
-	
+void rgb_pixel::SetRedValue(unsigned char Value){
 	RedValue = Value;
 }
 
-void rgbpixel::SetGreenValue(unsigned char Value){
-	
+void rgb_pixel::SetGreenValue(unsigned char Value){
 	GreenValue = Value;
 }
 
-void rgbpixel::SetBlueValue(unsigned char Value){
-	
+void rgb_pixel::SetBlueValue(unsigned char Value){
 	BlueValue = Value;
 }
 
-
-bool operator==(rgbpixel a, rgbpixel b) 
+bool operator==(rgb_pixel a, rgb_pixel b) 
 {
   if (a.GetRedValue()==b.GetRedValue() && a.GetGreenValue()==b.GetGreenValue() && a.GetBlueValue()==b.GetBlueValue())
   {
@@ -50,5 +41,3 @@ bool operator==(rgbpixel a, rgbpixel b)
   }
   else {return false;}
 }
-
-
