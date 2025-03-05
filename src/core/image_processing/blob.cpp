@@ -1,4 +1,8 @@
-#include "blob.h"
+#include "core/image_processing/blob.hpp"
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 blob::blob(int anArea, int aPerimeter){
 	
@@ -26,7 +30,3 @@ void blob::setPerimeter(int aPerimeter){
 	
 	perimeter = aPerimeter;
 }
-
-
-
-

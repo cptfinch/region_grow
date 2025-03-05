@@ -1,8 +1,13 @@
-#include "rgbpixel.h"
-#include "oBMPstream.h"
+#include "core/io/bmp_output.hpp"
+#include "utils/rgb_pixel.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
 
-oBMPstream::oBMPstream (string outfile, unsigned int Width, unsigned int Height)
+using namespace std;
+
+bmp_output::bmp_output (string outfile, unsigned int Width, unsigned int Height)
 	{
 		
 		ImageWidth = Width;	//Initialise private variables
@@ -83,7 +88,7 @@ oBMPstream::oBMPstream (string outfile, unsigned int Width, unsigned int Height)
 	}
 
 
-bool oBMPstream::write (rgbpixel *p, streamsize NumberOfPixels)
+bool bmp_output::write (rgbpixel *p, streamsize NumberOfPixels)
 {
 
 	char* Temp = new char [BytePadding];	//Create new char array for byte												//padding at end of each row 

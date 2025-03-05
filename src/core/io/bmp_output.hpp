@@ -1,17 +1,16 @@
+#include <fstream>
 #include <iostream>
 #include <string>
-#include <fstream>
-
-
+#include "utils/rgb_pixel.hpp"
 
 using namespace std;
 
-class oBMPstream : private ofstream
+class bmp_output : private ofstream
 {
 public:
-	oBMPstream (string outfile, unsigned int Height, unsigned int Width);
+	bmp_output (string outfile, unsigned int Height, unsigned int Width);
 
-	~oBMPstream ()
+	~bmp_output ()
 	{
 		close ();
 	};
@@ -42,11 +41,6 @@ public:
 private:
 	unsigned int ImageWidth;
 	unsigned int ImageHeight;	
-	//streamsize NumberOfPixels = ImageWidth * ImageHeight;
-
 	unsigned char BytePadding;
-	
 	unsigned int nWritten;
 };
-
-

@@ -10,10 +10,10 @@ HISTORY:
 ========
 28.04.2005 CPT Finch. Created.
 -----------------------------------------------------------------------------*/
-#include <iostream>
-#include "blob.h"
+#include "blob.hpp"
 #include <vector>
-
+#include <string>
+#include <utility>
 
 using namespace std;
 
@@ -96,8 +96,5 @@ private:
 				 // has already been counted as a boundary by the getBlobSize () method.
   bool* visitedB;		 // visitedB[r][c] is true if the square at row r, column c has
                          //   has already been visited by the getBlobPerimeter() method.
-
   
 };
-
-

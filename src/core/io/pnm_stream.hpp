@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-//#include "rgbpixel.h"
+#include "utils/rgb_pixel.hpp"
+#include <queue>
+
 using namespace std;
 
-class iPNMstream : private ifstream
+class pnm_stream : private ifstream
 {
 public:
-	iPNMstream (string infile);
+	pnm_stream (string infile);
 
-	~iPNMstream ()
+	~pnm_stream ()
 	{
 		ifstream::close ();
 	};

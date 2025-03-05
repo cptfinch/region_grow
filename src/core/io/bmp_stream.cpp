@@ -1,10 +1,16 @@
-#include "rgbpixel.h"
-#include "iBMPstream.h"
+#include "core/io/bmp_stream.hpp"
+#include "utils/rgb_pixel.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <queue>
+
+using namespace std;
 
 /*---------------------------------------------------------------------------*/
-/* Constructor for iBMPstream reads in header info, calculates byte-padding */
+/* Constructor for bmp_stream reads in header info, calculates byte-padding */
 /*---------------------------------------------------------------------------*/
-iBMPstream::iBMPstream (string infile)
+bmp_stream::bmp_stream (string infile)
 	{
 	
 		struct BitMapFileHeader 
@@ -148,7 +154,7 @@ iBMPstream::iBMPstream (string infile)
 
 
 
-bool iBMPstream::read (rgbpixel *p, streamsize NumberOfPixels)
+bool bmp_stream::read (rgbpixel *p, streamsize NumberOfPixels)
 
 /*-----------------------------------------------------------------------------	
 DESCRIPTION:
@@ -185,7 +191,7 @@ HISTORY:
 /*===========================================================================*/
 
 
-bool iBMPstream::inflate ()
+bool bmp_stream::inflate ()
 /*-----------------------------------------------------------------------------	
 DESCRIPTION:
 ============
@@ -250,6 +256,3 @@ HISTORY:
   return true;
 
 }
-
-
-

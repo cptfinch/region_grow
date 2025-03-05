@@ -1,8 +1,11 @@
-#include "rgbpixel.h"
-#include "iBMPstream.h"
-#include "BinaryImage.h"
-
+#include "core/image_processing/BinaryImage.hpp"
+#include "core/io/bmp_stream.hpp"
+#include "utils/rgb_pixel.hpp"
 #include <utility>
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 /*---------------------------------------------------------------------------
 Constructor for 2Dbinaryimage reads in a stream and converts it to 2D binary
@@ -12,7 +15,7 @@ BinaryImage::BinaryImage (string stream)
 
   rows = 0;		//initialise variables - if they are still 0 after opening stream then 
   columns = 0;	//can assume constructor has failed.
-  rgbpixel inpixel; //rgbpixel to read stream
+  rgb_pixel inpixel; //rgbpixel to read stream
 
   iBMPstream infile (std::move(stream));
   if(!infile)
@@ -24,8 +27,8 @@ BinaryImage::BinaryImage (string stream)
   columns = infile.GetWidth();
 
 //define the pixel as on if it has same colour as 
-  rgbpixel on = infile.getColourAt(0);
-  rgbpixel off = infile.getColourAt(1);
+  rgb_pixel on = infile.getColourAt(0);
+  rgb_pixel off = infile.getColourAt(1);
 
 //filled stores binary image as boolean values
   filled = new bool[rows*columns];
@@ -57,15 +60,11 @@ BinaryImage::BinaryImage (string stream)
   }
 }// end of constructor
 
-
-
 void BinaryImage::countBlobs() 
 {
 // Find the number of blobs in the grid and report the number to screen.
-         
   int size = 0; // Size of blob/s.
   int perimeter = 0; // perimeter/s.
- 
          /* First clear out the visited array. The getBlobSize() method will
          mark every filled square that it finds by setting the corresponding
          element of the array to true.  Once a square has been marked as
@@ -204,5 +203,3 @@ int BinaryImage::getBlobPerimeter(int r, int c) {
       boundary += getBlobPerimeter(r,c+1);
       return boundary;
    }  // end getPerimeter Size()
-
-

@@ -1,8 +1,13 @@
-#include "rgbpixel.h"
-#include "iPNMstream.h"
+#include "core/io/pnm_stream.hpp"
+#include "utils/rgb_pixel.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <queue>
 
+using namespace std;
 
-iPNMstream::iPNMstream (string infile)
+pnm_stream::pnm_stream (string infile)
 	{
 		
 		ifstream::open (infile.c_str(), ios::in | ios::binary);
@@ -27,7 +32,7 @@ iPNMstream::iPNMstream (string infile)
 	}
 
 
-bool iPNMstream::read (rgbpixel *p, streamsize NumberOfPixels)
+bool pnm_stream::read (rgbpixel *p, streamsize NumberOfPixels)
 {
 	unsigned char RedByte;
 	unsigned char GreenByte;
@@ -47,7 +52,3 @@ bool iPNMstream::read (rgbpixel *p, streamsize NumberOfPixels)
 	}
 	return true;
 }
-
-
-
-

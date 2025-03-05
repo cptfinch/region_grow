@@ -11,19 +11,20 @@ HISTORY:
 ========
 19.04.2005 CPT Finch. Created.
 -----------------------------------------------------------------------------*/
+#include "utils/rgb_pixel.hpp"
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <queue>
-//#include "rgbpixel.h"
-using namespace std;
 
-class iBMPstream : private ifstream
+using namespace std;		
+
+class bmp_stream : private ifstream
 {
 public:
-	iBMPstream (string infile);
+	bmp_stream (string infile);
 
-	~iBMPstream ()
+	~bmp_stream ()
 	{
 	  delete[] colourMap;
 	  ifstream::close ();

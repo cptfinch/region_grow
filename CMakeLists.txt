@@ -1,15 +1,20 @@
 cmake_minimum_required(VERSION 3.15)
-project(region_grow 
-    VERSION 1.0
-    DESCRIPTION "Medical Image Region Analysis Tool"
-    LANGUAGES CXX
-)
-
+project(region_grow VERSION 1.0 DESCRIPTION "Medical Image Region Analysis Tool" LANGUAGES CXX)
+add_subdirectory(src/core)
+add_subdirectory(src/utils)
+add_subdirectory(test)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Directory structure organization
-add_subdirectory(src)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 add_subdirectory(apps)
-add_subdirectory(tests)  # If adding proper tests
+add_library(core_lib src/core/image_processing/BinaryImage.cpp  src/core/io/bmp_stream.cpp src/core/io/pnm_stream.cpp)
+add_library(utils_lib src/utils/rgb_pixel.cpp)
+add_library(test_lib test/testing.cpp)
+target_link_libraries(core_lib PRIVATE utils_lib)
+target_link_libraries(utils_lib PRIVATE core_lib)
+target_link_libraries(test_lib PRIVATE core_lib utils_lib)
+add_executable(testing test/testing.cpp)
+target_link_libraries(testing PRIVATE core_lib utils_lib)
